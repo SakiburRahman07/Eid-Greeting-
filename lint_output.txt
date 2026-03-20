@@ -1,0 +1,13 @@
+
+D:\Project\eid_mubarake\src\components\Scene4_Fireworks.tsx
+  42:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Project\eid_mubarake\src\components\Scene7_FancyCard.tsx
+  50:13   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  50:129  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Project\eid_mubarake\src\components\ScrollOrchestrator.tsx
+  3:21  error  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+
