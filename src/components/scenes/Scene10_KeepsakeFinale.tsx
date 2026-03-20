@@ -37,7 +37,7 @@ export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: Mo
                  With Warmest Wishes,
                </p>
                <p className="font-serif text-base md:text-xl italic mt-1 text-[#4a3f35]">
-                 Sakibur Rahman
+                 Sakib
                </p>
              </div>
            </motion.div>
