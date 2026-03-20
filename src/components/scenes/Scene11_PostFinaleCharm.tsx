@@ -16,7 +16,7 @@ export const Scene11PostFinaleCharm = ({ scrollYProgress }: { scrollYProgress: M
         onClick={() => {
           if (navigator.share) {
             navigator.share({
-              title: 'Eid Mubarak',
+              title: 'Eid Mubarake',
               text: 'May this Eid bring joy to your heart, peace to your home, and light to your soul.',
               url: window.location.href,
             });

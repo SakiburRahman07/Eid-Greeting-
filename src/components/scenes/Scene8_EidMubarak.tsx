@@ -27,7 +27,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: MotionV
           className="absolute inset-0 text-amber-900/40 blur-sm translate-y-4"
           style={{ opacity: shadowOpacity }}
         >
-          EID MUBARAK
+          EID MUBARAKE
         </motion.div>
 
         {/* Layer 2: Glow */}
@@ -35,7 +35,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: MotionV
           className="absolute inset-0 text-amber-400 blur-[20px] mix-blend-screen"
           style={{ opacity: glowOpacity }}
         >
-          EID MUBARAK
+          EID MUBARAKE
         </motion.div>
 
         {/* Layer 3: Stroke/Outline */}
@@ -46,7 +46,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: MotionV
             WebkitTextStroke: "1px rgba(255, 230, 150, 0.8)" 
           }}
         >
-          EID MUBARAK
+          EID MUBARAKE
         </motion.div>
 
         {/* Layer 4: Full Body Fill */}
@@ -54,7 +54,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: MotionV
           className="relative bg-clip-text text-transparent bg-gradient-to-b from-white via-[#ffe8b5] to-[#f59e0b] drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]"
           style={{ opacity: fillOpacity }}
         >
-          EID MUBARAK
+          EID MUBARAKE
         </motion.div>
 
       </div>
