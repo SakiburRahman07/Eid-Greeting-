@@ -27,19 +27,19 @@ export const Scene4WorldResponds = ({ scrollYProgress }: { scrollYProgress: any 
 
       {/* Floating lanterns ascending slowly */}
       <motion.div 
-        className="absolute bottom-1/4 left-1/4 w-8 h-12 rounded-t flex flex-col items-center justify-end"
+        className="absolute bottom-1/4 left-8 md:left-1/4 w-6 h-10 md:w-8 md:h-12 rounded-t flex flex-col items-center justify-end"
         style={{ transform: lanternY1, opacity: lanternOpacity1 }}
       >
-        <div className="w-6 h-10 bg-gradient-to-t from-yellow-600 to-orange-400 opacity-80 rounded-sm shadow-[0_0_30px_#f59e0b]" />
-        <div className="w-1 h-3 bg-yellow-200 mt-1" />
+        <div className="w-5 h-8 md:w-6 md:h-10 bg-gradient-to-t from-yellow-600 to-orange-400 opacity-80 rounded-sm shadow-[0_0_30px_#f59e0b]" />
+        <div className="w-[2px] h-2 md:w-1 md:h-3 bg-yellow-200 mt-1" />
       </motion.div>
 
       <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-10 h-14 rounded-t flex flex-col items-center justify-end scale-75"
+        className="absolute bottom-1/3 right-8 md:right-1/4 w-8 h-12 md:w-10 md:h-14 rounded-t flex flex-col items-center justify-end scale-75"
         style={{ transform: lanternY2, opacity: lanternOpacity2 }}
       >
-        <div className="w-8 h-12 bg-gradient-to-t from-yellow-500 to-amber-300 opacity-90 rounded-sm shadow-[0_0_40px_#fbbf24]" />
-        <div className="w-1 h-4 bg-yellow-100 mt-1" />
+        <div className="w-6 h-10 md:w-8 md:h-12 bg-gradient-to-t from-yellow-500 to-amber-300 opacity-90 rounded-sm shadow-[0_0_40px_#fbbf24]" />
+        <div className="w-[2px] h-3 md:w-1 md:h-4 bg-yellow-100 mt-1" />
       </motion.div>
 
       {/* Strings of light rippling across architectural silhouette */}

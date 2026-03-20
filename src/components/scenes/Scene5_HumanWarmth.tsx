@@ -23,7 +23,7 @@ export const Scene5HumanWarmth = ({ scrollYProgress }: { scrollYProgress: any })
         <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-[#0e0a05] to-transparent z-0" />
 
         {/* Silhouettes of a family / kids, back-lit by the environment */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-6 z-10 w-64 h-48">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-end gap-6 z-10 w-64 h-48 scale-[0.6] sm:scale-75 md:scale-100 origin-bottom">
            
            {/* Adult / Older Child silhouette */}
            <div className="relative w-16 h-36 bg-[#040201] rounded-t-full drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">

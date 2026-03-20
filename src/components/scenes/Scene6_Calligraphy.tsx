@@ -15,7 +15,7 @@ export const Scene6Calligraphy = ({ scrollYProgress }: { scrollYProgress: any })
       style={{ opacity }}
       className="absolute inset-0 z-40 pointer-events-none flex items-center justify-center"
     >
-      <div className="relative w-full max-w-2xl aspect-video">
+      <div className="relative w-full max-w-[90vw] md:max-w-2xl aspect-square md:aspect-video mx-auto">
         
         {/* Glow behind the calligraphy */}
         <motion.div 

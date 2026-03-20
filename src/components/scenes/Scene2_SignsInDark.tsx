@@ -42,13 +42,13 @@ export const Scene2SignsInDark = ({ scrollYProgress }: { scrollYProgress: any })
       <div className="absolute inset-0 z-20 flex" style={{ background: 'radial-gradient(circle at top, rgba(255,255,255,0.02) 1px, transparent 1px)', backgroundSize: '70px 70px' }} />
 
       {/* Architecture with distant windows lighting up */}
-      <div className="absolute bottom-1/4 w-full flex justify-center gap-12 z-30">
-        <div className="relative w-24 h-40 bg-[#060a16] border border-[#ffffff0a] rounded-sm">
-           <motion.div style={{ opacity: windowOpacities[0] }} className="absolute top-4 left-4 w-4 h-6 bg-yellow-900/40 rounded-sm shadow-[0_0_15px_rgba(200,150,50,0.5)]" />
-           <motion.div style={{ opacity: windowOpacities[2] }} className="absolute bottom-8 right-4 w-4 h-6 bg-yellow-900/30 shadow-[0_0_10px_rgba(200,150,50,0.3)] rounded-sm" />
+      <div className="absolute bottom-1/4 w-full flex justify-center gap-6 md:gap-12 z-30 scale-75 sm:scale-90 md:scale-100">
+        <div className="relative w-20 h-32 md:w-24 md:h-40 bg-[#060a16] border border-[#ffffff0a] rounded-sm">
+           <motion.div style={{ opacity: windowOpacities[0] }} className="absolute top-4 left-4 w-3 h-5 md:w-4 md:h-6 bg-yellow-900/40 rounded-sm shadow-[0_0_15px_rgba(200,150,50,0.5)]" />
+           <motion.div style={{ opacity: windowOpacities[2] }} className="absolute bottom-6 right-3 w-3 h-5 md:w-4 md:h-6 bg-yellow-900/30 shadow-[0_0_10px_rgba(200,150,50,0.3)] rounded-sm" />
         </div>
-        <div className="relative w-32 h-56 bg-[#04060f] border border-[#ffffff0a] rounded-sm top-8">
-           <motion.div style={{ opacity: windowOpacities[1] }} className="absolute top-10 right-6 w-5 h-8 bg-amber-800/50 shadow-[0_0_20px_rgba(214,142,43,0.6)] rounded-sm" />
+        <div className="relative w-28 h-48 md:w-32 md:h-56 bg-[#04060f] border border-[#ffffff0a] rounded-sm top-8">
+           <motion.div style={{ opacity: windowOpacities[1] }} className="absolute top-8 right-4 w-4 h-6 md:w-5 md:h-8 bg-amber-800/50 shadow-[0_0_20px_rgba(214,142,43,0.6)] rounded-sm" />
         </div>
       </div>
       

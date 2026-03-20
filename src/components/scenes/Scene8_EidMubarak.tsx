@@ -20,7 +20,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: any }) 
       style={{ opacity, scale, y: yOffset }}
       className="absolute inset-0 z-[60] pointer-events-none flex flex-col items-center justify-center font-serif"
     >
-      <div className="relative text-6xl md:text-8xl lg:text-9xl tracking-widest text-center">
+      <div className="relative text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-[0.1em] sm:tracking-widest text-center px-4 md:px-0">
         
         {/* Layer 1: Shadow Outline */}
         <motion.div 
@@ -61,7 +61,7 @@ export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: any }) 
 
       {/* Subtitle / Blessing */}
       <motion.div 
-         className="mt-8 text-lg font-light tracking-[0.3em] text-white/70 uppercase"
+         className="mt-6 md:mt-8 text-xs md:text-lg font-light tracking-[0.2em] md:tracking-[0.3em] text-white/70 uppercase text-center px-4 max-w-[90vw]"
          style={{ opacity: useTransform(scrollYProgress, [0.83, 0.88], [0, 1]) }}
       >
         May your world be filled with light
