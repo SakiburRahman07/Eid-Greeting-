@@ -32,9 +32,14 @@ export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: an
                "May this Eid bring joy to your heart, peace to your home, and light to your soul."
              </p>
              <div className="w-16 h-1 bg-[#d4af37] rounded-full mx-auto" />
-             <p className="text-[10px] md:text-sm tracking-widest uppercase mt-2 md:mt-4 text-[#8b7355]">
-               With Warmest Wishes
-             </p>
+             <div className="mt-2 md:mt-4 flex flex-col items-center">
+               <p className="text-[10px] md:text-sm tracking-widest uppercase text-[#8b7355]">
+                 With Warmest Wishes,
+               </p>
+               <p className="font-serif text-base md:text-xl italic mt-1 text-[#4a3f35]">
+                 Sakibur Rahman
+               </p>
+             </div>
            </motion.div>
 
            {/* Inner subtle pattern */}
