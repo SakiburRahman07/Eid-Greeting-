@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene6Calligraphy = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene6Calligraphy = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 6 corresponds to 55% to 75% scroll
   const opacity = useTransform(scrollYProgress, [0.52, 0.60, 0.70, 0.78], [0, 1, 1, 0]);
 

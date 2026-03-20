@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene9DescentIntimacy = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene9DescentIntimacy = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 9 cools down the environment from 88% to 95%
   const opacity = useTransform(scrollYProgress, [0.86, 0.90, 0.96, 0.98], [0, 1, 1, 0]);
 

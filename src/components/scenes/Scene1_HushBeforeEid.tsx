@@ -1,14 +1,14 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene1HushBeforeEid = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene1HushBeforeEid = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 1 occupies 0% to 15% of the total scroll
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.15], [1, 1, 0]);
   const yOffset = useTransform(scrollYProgress, [0, 0.15], ["0%", "-20%"]);
   
   // Subtle breathing motion for stars/horizon
-  const slowBreathe: any = {
+  const slowBreathe: import("framer-motion").TargetAndTransition = {
     opacity: [0.4, 0.8, 0.4],
     transition: { duration: 6, repeat: Infinity, ease: "easeInOut" }
   };

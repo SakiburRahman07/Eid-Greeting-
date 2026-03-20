@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useTransform, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene11PostFinaleCharm = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene11PostFinaleCharm = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 11 is the very end (98% to 100%)
   const opacity = useTransform(scrollYProgress, [0.97, 0.99], [0, 1]);
   const yOffset = useTransform(scrollYProgress, [0.97, 0.99], ["20px", "0px"]);

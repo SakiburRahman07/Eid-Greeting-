@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene3MoonSighting = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene3MoonSighting = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 3 acts between 20% and 40% of standard scroll
   const opacity = useTransform(scrollYProgress, [0.18, 0.25, 0.35, 0.45], [0, 1, 1, 0]);
   
