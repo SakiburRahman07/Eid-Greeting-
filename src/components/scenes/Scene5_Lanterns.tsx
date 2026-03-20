@@ -1,64 +1,71 @@
 "use client";
 
-import { motion, useTransform, MotionValue } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, MotionValue, useTransform } from "framer-motion";
+import { useMemo } from "react";
+import { SCROLL_TIMINGS } from "@/lib/config";
 
-interface Props {
-  scrollYProgress: MotionValue<number>;
-}
+export const Scene5Lanterns = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+  const p = scrollYProgress;
+  const [start, end] = SCROLL_TIMINGS.lanterns;
+  
+  const lanternsOpacity = useTransform(p, [start, start + 0.05, end - 0.1, end], [0, 1, 1, 0]);
+  // Epic vertical shift tied to user's scroll depth
+  const containerY = useTransform(p, [start, end], ["120vh", "-120vh"]);
 
-export const Scene5Lanterns = ({ scrollYProgress }: Props) => {
-  const lanternsOpacity = useTransform(scrollYProgress, [0.55, 0.6, 0.75, 0.8], [0, 1, 1, 0]);
-  const containerY = useTransform(scrollYProgress, [0.55, 0.8], ["100vh", "-100vh"]);
-
-  const [lanternData, setLanternData] = useState<{ id: number; left: string; size: number; delay: number; duration: number }[]>([]);
-
-  useEffect(() => {
-    const newLanterns = Array.from({ length: 15 }).map((_, i) => ({
+  const lanternData = useMemo(() => {
+    return Array.from({ length: 18 }).map((_, i) => ({
       id: i,
-      left: `${Math.random() * 80 + 10}%`,
-      size: Math.random() * 0.8 + 0.4,
-      delay: Math.random() * 2,
-      duration: Math.random() * 4 + 4,
+      left: `${(Math.sin(i * 11) * 45 + 50).toFixed(2)}%`,
+      size: (i % 4) * 0.2 + 0.5,
+      delay: (i % 5) * 0.5,
+      duration: (i % 3) + 4,
     }));
-    setLanternData(newLanterns);
   }, []);
 
   return (
     <motion.div 
-      className="absolute inset-0 pointer-events-none z-20"
+      className="absolute inset-0 pointer-events-none z-20 will-change-transform"
       style={{ opacity: lanternsOpacity, y: containerY }}
     >
       {lanternData.map((l) => (
         <motion.div
           key={l.id}
-          className="absolute"
+          className="absolute will-change-transform"
           style={{ left: l.left, bottom: "-200px", transform: `scale(${l.size})` }}
-          animate={{ x: [-20, 20, -20] }}
+          animate={{ x: [-25, 25, -25], rotate: [-2, 2, -2] }}
           transition={{ duration: l.duration, repeat: Infinity, ease: "easeInOut", delay: l.delay }}
         >
-          <LanternSVG />
+          <LanternSVG delay={l.delay} />
         </motion.div>
       ))}
     </motion.div>
   );
 };
 
-const LanternSVG = () => (
-  <div className="relative w-16 h-24 flex flex-col items-center">
-    <div className="absolute inset-0 bg-[#FFAA00] blur-xl opacity-60 rounded-full" />
-    <svg viewBox="0 0 100 150" className="relative w-full h-full text-[#DF9F2A] drop-shadow-[0_0_10px_rgba(255,170,0,0.8)]">
-      <path d="M40 10H60V20H40z" fill="currentColor"/>
-      <path d="M30 20 L70 20 L80 40 L20 40 Z" fill="currentColor"/>
-      <path d="M25 40 L75 40 L65 110 L35 110 Z" fill="rgba(255, 230, 150, 0.4)" stroke="currentColor" strokeWidth="2"/>
-      <line x1="40" y1="40" x2="45" y2="110" stroke="currentColor" strokeWidth="2"/>
-      <line x1="60" y1="40" x2="55" y2="110" stroke="currentColor" strokeWidth="2"/>
-      <path d="M30 110 L70 110 L60 130 L40 130 Z" fill="currentColor"/>
-      <path d="M50 130 V145" stroke="currentColor" strokeWidth="2"/>
-      <path d="M45 150 L50 145 L55 150" stroke="currentColor" fill="transparent" strokeWidth="1.5"/>
-      <circle cx="50" cy="80" r="10" fill="#FFF5C4">
-        <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+const LanternSVG = ({ delay }: { delay: number }) => (
+  <div className="relative w-20 h-28 flex flex-col items-center">
+    <div className="absolute inset-[-20%] bg-[#FFAA00] blur-2xl opacity-50 rounded-full mix-blend-screen" />
+    <svg viewBox="0 0 100 150" className="relative w-full h-full text-[#DF9F2A] drop-shadow-[0_0_15px_rgba(255,170,0,0.9)]">
+      {/* Intricate top cap */}
+      <path d="M45 5H55V10H45z" fill="currentColor"/>
+      <path d="M30 10 L70 10 L80 35 L20 35 Z" fill="currentColor"/>
+      
+      {/* Glass Body with texture */}
+      <path d="M25 35 L75 35 L65 115 L35 115 Z" fill="rgba(255, 230, 150, 0.25)" stroke="currentColor" strokeWidth="2.5"/>
+      <line x1="40" y1="35" x2="45" y2="115" stroke="currentColor" strokeWidth="2.5" opacity="0.8"/>
+      <line x1="60" y1="35" x2="55" y2="115" stroke="currentColor" strokeWidth="2.5" opacity="0.8"/>
+      
+      {/* Base */}
+      <path d="M30 115 L70 115 L60 135 L40 135 Z" fill="currentColor"/>
+      
+      {/* Royal Tassel */}
+      <path d="M50 135 V150" stroke="currentColor" strokeWidth="2.5"/>
+      <path d="M45 155 L50 150 L55 155" stroke="currentColor" fill="transparent" strokeWidth="2"/>
+
+      {/* Internal Flickering Flame */}
+      <circle cx="50" cy="85" r="10" fill="#FFF5C4">
+        <animate attributeName="r" values="9;14;9" dur={`${2 + delay % 1}s`} repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.7;1;0.7" dur={`${2 + delay % 1}s`} repeatCount="indefinite" />
       </circle>
     </svg>
   </div>

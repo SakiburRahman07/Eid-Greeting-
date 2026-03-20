@@ -1,37 +1,67 @@
 "use client";
 
-import { motion, useTransform, MotionValue } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
+import { SCROLL_TIMINGS } from "@/lib/config";
 
-interface Props {
-  scrollYProgress: MotionValue<number>;
-}
+export const Scene3KidsSequence = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+  const p = scrollYProgress;
+  const [eStart, eEnd] = SCROLL_TIMINGS.kidsEnter;
+  const [pStart, pEnd] = SCROLL_TIMINGS.kidsPoint;
 
-export const Scene3KidsSequence = ({ scrollYProgress }: Props) => {
-  const kidsX = useTransform(scrollYProgress, [0.2, 0.35], ["-40vw", "10vw"]);
-  const kidsOpacity = useTransform(scrollYProgress, [0.2, 0.25], [0, 1]);
-  const armRotate = useTransform(scrollYProgress, [0.35, 0.45], [0, -45]);
-  const handTouchGlowOpacity = useTransform(scrollYProgress, [0.42, 0.47, 0.52], [0, 1, 0]);
+  // Cinematic Walk In
+  const kidsX = useTransform(p, [eStart, eEnd], ["-50vw", "10vw"]);
+  const kidsOpacity = useTransform(p, [eStart, eStart + 0.05], [0, 1]);
+  
+  // Pointing Gesture with organic timing
+  // Point up smoothly, hold, then lower back slightly as scroll continues heavily
+  const armRotate = useTransform(p, [pStart, pEnd, 0.6], [0, -50, -40]);
+  
+  // Magic flare when fingers hit the perfect angle
+  const handTouchGlowOpacity = useTransform(
+    p, 
+    [pStart + 0.04, pEnd, 0.55], 
+    [0, 1, 0]
+  );
+  
+  const auraScale = useTransform(p, [pStart + 0.04, pEnd], [0.5, 1.5]);
 
   return (
     <motion.div 
-      className="absolute bottom-0 left-0 w-full h-[60vh] pointer-events-none z-20 flex items-end"
+      className="absolute bottom-0 left-0 w-full h-[60vh] pointer-events-none z-20 flex items-end will-change-transform"
       style={{ opacity: kidsOpacity }}
     >
       <motion.div 
-        className="relative w-64 h-80 xl:w-96 xl:h-[30rem] ml-4 md:ml-12 mb-[-5%]"
+        className="relative w-64 h-80 xl:w-96 xl:h-[30rem] ml-4 md:ml-12 mb-[-8%] drop-shadow-2xl"
         style={{ x: kidsX }}
       >
         {/* Kid 1 (Taller, pointing) Silhouette */}
         <svg viewBox="0 0 200 300" className="absolute bottom-0 w-48 h-[18rem] md:w-64 md:h-[24rem] xl:w-80 xl:h-[30rem] text-[#050810]" xmlns="http://www.w3.org/2000/svg">
+          {/* Main Body */}
           <path d="M100 80C111.046 80 120 71.0457 120 60C120 48.9543 111.046 40 100 40C88.9543 40 80 48.9543 80 60C80 71.0457 88.9543 80 100 80Z" fill="currentColor"/>
           <path d="M130 140C130 110 115 90 95 90C75 90 60 110 60 140V220H130V140Z" fill="currentColor"/>
           <path d="M70 220H90V300H70V220Z" fill="currentColor"/>
           <path d="M100 220H120V300H100V220Z" fill="currentColor"/>
-          <motion.g style={{ rotate: armRotate, originX: "30%", originY: "20%" }} className="origin-[110px_100px]">
+          
+          {/* Animated Right Arm */}
+          <motion.g style={{ rotate: armRotate, originX: "30%", originY: "20%" }} className="origin-[110px_100px] will-change-transform">
             <path d="M110 100C120 100 150 120 160 140V145C150 140 125 115 110 115V100Z" fill="currentColor"/>
             <path d="M160 135L175 145L165 150Z" fill="currentColor"/>
-            <motion.circle cx="175" cy="145" r="5" fill="#FFF" style={{ opacity: handTouchGlowOpacity }} className="drop-shadow-[0_0_15px_rgba(255,255,255,1)]" />
+            
+            {/* The Magic Touch Point */}
+            <motion.circle 
+              cx="175" cy="145" r="8" 
+              fill="#FFFFFF" 
+              style={{ opacity: handTouchGlowOpacity, scale: auraScale }}
+              className="drop-shadow-[0_0_20px_rgba(255,255,255,1)] mix-blend-screen"
+            />
+            {/* Second core glow */}
+            <motion.circle 
+              cx="175" cy="145" r="3" 
+              fill="#FFF" 
+              style={{ opacity: handTouchGlowOpacity }}
+            />
           </motion.g>
+
           <path d="M60 100C50 100 40 130 45 150L60 120V100Z" fill="currentColor"/>
         </svg>
 

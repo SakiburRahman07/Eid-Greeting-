@@ -1,33 +1,48 @@
 "use client";
 
-import { motion, useTransform, MotionValue } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
+import { SCROLL_TIMINGS, THEME_COLORS } from "@/lib/config";
 
-interface Props {
-  scrollYProgress: MotionValue<number>;
-}
+export const Scene6Typography = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+  const p = scrollYProgress;
+  const [start, end] = SCROLL_TIMINGS.typography;
 
-export const Scene6Typography = ({ scrollYProgress }: Props) => {
-  const opacity = useTransform(scrollYProgress, [0.72, 0.78, 0.88, 0.95], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.72, 0.85], [3, 1]);
-  const blurVal = useTransform(scrollYProgress, [0.72, 0.78], [20, 0]);
-  const subOpacity = useTransform(scrollYProgress, [0.78, 0.82], [0, 1]);
+  const opacity = useTransform(p, [start, start + 0.06, end - 0.05, end], [0, 1, 1, 0]);
+  const scale = useTransform(p, [start, start + 0.1], [2.5, 1]);
+  const blurVal = useTransform(p, [start, start + 0.08], [25, 0]);
+  
+  const subOpacity = useTransform(p, [start + 0.06, start + 0.1], [0, 1]);
+  const letterSpacing = useTransform(p, [start, start + 0.12], ["0.5em", "0.15em"]);
 
   return (
     <motion.div 
-      className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center z-30 space-y-8"
+      className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center z-30 space-y-6 md:space-y-10 will-change-transform"
       style={{ opacity, scale }}
     >
       <motion.div style={{ filter: useTransform(blurVal, (v) => `blur(${v}px)`) }}>
-        <h1 className="text-6xl md:text-8xl xl:text-9xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-[#FFF5C4] via-[#FFD700] to-[#DF9F2A] drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]">
+        <h1 
+          className="text-5xl md:text-8xl xl:text-9xl font-serif font-bold text-transparent bg-clip-text text-center px-4"
+          style={{ 
+            backgroundImage: `linear-gradient(to bottom, #FFFFFF, ${THEME_COLORS.goldLight}, ${THEME_COLORS.goldPrimary})`,
+            letterSpacing,
+            filter: "drop-shadow(0px 10px 30px rgba(212, 175, 55, 0.4))"
+          }}
+        >
           EID MUBARAK
         </h1>
       </motion.div>
       <motion.div 
         style={{ opacity: subOpacity }}
-        className="text-lg md:text-2xl text-white/80 font-light tracking-[0.3em] uppercase text-center max-w-2xl px-4"
+        className="text-base md:text-2xl text-white/90 font-light tracking-[0.2em] md:tracking-[0.3em] uppercase text-center max-w-3xl px-6 mix-blend-screen"
       >
         May this beautiful occasion fill your heart with joy and your home with peace.
       </motion.div>
+
+      {/* Decorative filigree divider under the text */}
+      <motion.div 
+        style={{ opacity: subOpacity }}
+        className="w-48 md:w-96 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mt-8"
+      />
     </motion.div>
   );
 };
