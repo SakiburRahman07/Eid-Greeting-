@@ -22,17 +22,17 @@ export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: an
     >
       <motion.div 
         style={{ scale: cardScale, y: cardY }}
-        className="relative w-full max-w-md aspect-[3/4] md:aspect-square md:max-w-xl mx-auto"
+        className="relative w-[85vw] md:w-full max-w-[320px] sm:max-w-md aspect-[3/4] md:aspect-square md:max-w-xl mx-auto"
       >
         {/* The Card Back / Envelope Base */}
-        <div className="absolute inset-0 bg-[#fbf8f1] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#e5d9c5] overflow-hidden flex items-center justify-center p-8 text-center text-[#4a3f35]">
+        <div className="absolute inset-0 bg-[#fbf8f1] rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#e5d9c5] overflow-hidden flex items-center justify-center p-6 md:p-8 text-center text-[#4a3f35]">
            <motion.div style={{ opacity: innerContentOpacity }} className="flex flex-col items-center justify-center gap-6 h-full">
              <div className="w-16 h-1 bg-[#d4af37] rounded-full mx-auto" />
-             <p className="font-serif text-lg md:text-2xl italic leading-relaxed">
+             <p className="font-serif text-base sm:text-lg md:text-2xl italic leading-relaxed">
                "May this Eid bring joy to your heart, peace to your home, and light to your soul."
              </p>
              <div className="w-16 h-1 bg-[#d4af37] rounded-full mx-auto" />
-             <p className="text-sm tracking-widest uppercase mt-4 text-[#8b7355]">
+             <p className="text-[10px] md:text-sm tracking-widest uppercase mt-2 md:mt-4 text-[#8b7355]">
                With Warmest Wishes
              </p>
            </motion.div>

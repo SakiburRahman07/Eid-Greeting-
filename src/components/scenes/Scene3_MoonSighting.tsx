@@ -26,7 +26,7 @@ export const Scene3MoonSighting = ({ scrollYProgress }: { scrollYProgress: any }
       />
 
       {/* Foreground architectural blocking element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#04060f] rounded-t-full z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] border-t border-[#ffffff0a]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[120vw] h-[120vw] md:w-96 md:h-96 bg-[#04060f] rounded-t-full z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] border-t border-[#ffffff0a]">
       </div>
 
       {/* The Crescent Moon */}
@@ -36,9 +36,9 @@ export const Scene3MoonSighting = ({ scrollYProgress }: { scrollYProgress: any }
           scale: scale,
           boxShadow: glow 
         }}
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 z-10 w-32 h-32 rounded-full bg-gradient-to-tr from-transparent via-[#ffe8b5] to-white"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 z-10 w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-transparent via-[#ffe8b5] to-white"
       >
-        <div className="absolute top-2 right-4 w-28 h-28 bg-[#04060f] rounded-full" />
+        <div className="absolute top-1.5 right-3 w-[5.5rem] h-[5.5rem] md:top-2 md:right-4 md:w-28 md:h-28 bg-[#04060f] rounded-full" />
       </motion.div>
 
       {/* Stars brightening around the moon */}

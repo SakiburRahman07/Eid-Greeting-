@@ -46,10 +46,10 @@ export const Scene7Crescendo = ({ scrollYProgress }: { scrollYProgress: any }) =
 
       {/* Elegant Fireworks (Sculptural and Slow) */}
       <motion.div 
-        className="absolute top-1/4 left-1/4"
+        className="absolute top-1/4 left-4 md:left-1/4"
         style={{ scale: fw1Scale, opacity: fw1Opacity }}
       >
-        <div className="relative">
+        <div className="relative scale-50 sm:scale-75 md:scale-100 origin-center">
            {Array.from({ length: 12 }).map((_, i) => (
              <motion.div 
                key={i}
@@ -64,10 +64,10 @@ export const Scene7Crescendo = ({ scrollYProgress }: { scrollYProgress: any }) =
       </motion.div>
 
       <motion.div 
-        className="absolute top-1/3 right-1/4"
+        className="absolute top-1/3 right-4 md:right-1/4"
         style={{ scale: fw2Scale, opacity: fw2Opacity }}
       >
-        <div className="relative">
+        <div className="relative scale-[0.4] sm:scale-75 md:scale-100 origin-center">
            {Array.from({ length: 8 }).map((_, i) => (
              <motion.div 
                key={i}

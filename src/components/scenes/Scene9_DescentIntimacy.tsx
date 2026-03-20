@@ -40,7 +40,7 @@ export const Scene9DescentIntimacy = ({ scrollYProgress }: { scrollYProgress: an
 
       {/* Gentle focus aura for the upcoming card */}
       <motion.div 
-        className="w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_70%)] rounded-full z-10"
+        className="w-[120vw] h-[120vw] md:w-[400px] md:h-[400px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_70%)] rounded-full z-10"
         style={{ opacity: useTransform(scrollYProgress, [0.92, 0.96], [0, 1]) }}
       />
     </motion.div>

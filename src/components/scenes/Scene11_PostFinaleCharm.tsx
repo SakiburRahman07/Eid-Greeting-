@@ -11,7 +11,7 @@ export const Scene11PostFinaleCharm = ({ scrollYProgress }: { scrollYProgress: a
   return (
     <motion.div 
       style={{ opacity, y: yOffset }}
-      className="absolute bottom-12 left-0 w-full z-[80] flex flex-col items-center justify-center pointer-events-auto"
+      className="absolute bottom-24 md:bottom-12 left-0 w-full z-[80] flex flex-col items-center justify-center pointer-events-auto"
     >
       <button 
         onClick={() => {

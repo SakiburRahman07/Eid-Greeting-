@@ -29,26 +29,26 @@ export const Scene1HushBeforeEid = ({ scrollYProgress }: { scrollYProgress: any 
 
       {/* Faint horizon line */}
       <motion.div 
-        className="absolute bottom-0 w-full h-1/3 z-10"
+        className="absolute bottom-0 w-full h-1/4 md:h-1/3 z-10"
         style={{ background: 'linear-gradient(to top, rgba(10, 15, 30, 0.9), transparent)' }}
       >
         <div className="absolute bottom-4 left-0 w-full flex justify-around opacity-20 blur-[1px]">
            {/* Abstract domes/minarets silhouettes */}
-           <div className="w-16 h-24 bg-[#0a0f1e] rounded-t-full relative top-12" />
-           <div className="w-8 h-32 bg-[#0a0f1e] rounded-t-sm" />
-           <div className="w-20 h-20 bg-[#0a0f1e] rounded-t-full relative top-16" />
+           <div className="w-12 h-16 md:w-16 md:h-24 bg-[#0a0f1e] rounded-t-[50px] relative top-8 md:top-12" />
+           <div className="w-6 h-20 md:w-8 md:h-32 bg-[#0a0f1e] rounded-t-sm" />
+           <div className="w-16 h-12 md:w-20 md:h-20 bg-[#0a0f1e] rounded-t-[50px] relative top-12 md:top-16" />
         </div>
       </motion.div>
 
       {/* Gentle Prompt */}
       <motion.div 
-        className="z-20 text-center text-white/40 tracking-widest text-sm uppercase font-light mt-40"
+        className="z-20 text-center text-white/40 tracking-[0.15em] md:tracking-widest text-xs md:text-sm uppercase font-light mt-20 md:mt-40 px-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 2 }}
       >
         presents
-        <div className="mt-8 text-xs text-white/20 animate-bounce">
+        <div className="mt-6 md:mt-8 text-[10px] md:text-xs text-white/20 animate-bounce">
           Scroll to witness the night
         </div>
       </motion.div>
