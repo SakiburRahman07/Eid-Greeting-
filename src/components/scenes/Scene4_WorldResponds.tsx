@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene4WorldResponds = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene4WorldResponds = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 4 corresponds to 35% to 55% scroll
   const opacity = useTransform(scrollYProgress, [0.32, 0.40, 0.50, 0.60], [0, 1, 1, 0]);
 

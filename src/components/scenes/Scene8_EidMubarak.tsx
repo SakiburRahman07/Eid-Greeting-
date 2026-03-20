@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene8EidMubarak = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 8 typography reveals between 75% and 90%
   const opacity = useTransform(scrollYProgress, [0.72, 0.80, 0.88, 0.94], [0, 1, 1, 0]);
 

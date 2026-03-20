@@ -1,13 +1,24 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene7Crescendo = ({ scrollYProgress }: { scrollYProgress: any }) => {
+const Lantern = ({ scrollYProgress, i }: { scrollYProgress: MotionValue<number>, i: number }) => {
+  const y = useTransform(scrollYProgress, [0.65, 0.85], [0, -200 - (i * 20)]);
+  return (
+    <motion.div 
+      className="absolute w-2 h-4 rounded-full bg-gradient-to-t from-yellow-500 to-amber-200 blur-[2px] shadow-[0_0_15px_#fbbf24]"
+      style={{
+        left: `${(i * 7) % 100}%`,
+        top: `${80 + (i * 11) % 40}%`,
+        y
+      }}
+    />
+  );
+};
+
+export const Scene7Crescendo = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 7 climax is from 65% to 85% scroll
   const opacity = useTransform(scrollYProgress, [0.62, 0.70, 0.82, 0.88], [0, 1, 1, 0]);
-
-  // Grand architecture shifting up
-  const archY = useTransform(scrollYProgress, [0.65, 0.85], ["20%", "-10%"]);
 
   // Fireworks expansion
   const fw1Scale = useTransform(scrollYProgress, [0.68, 0.75], [0, 1.5]);
@@ -32,15 +43,7 @@ export const Scene7Crescendo = ({ scrollYProgress }: { scrollYProgress: any }) =
       <motion.div style={{ y: lanternFieldY }} className="absolute inset-0 w-full h-full">
          {/* Abstract lantern lights drifting */}
          {Array.from({ length: 15 }).map((_, i) => (
-           <motion.div 
-             key={i}
-             className="absolute w-2 h-4 rounded-full bg-gradient-to-t from-yellow-500 to-amber-200 blur-[2px] shadow-[0_0_15px_#fbbf24]"
-             style={{
-               left: `${(i * 7) % 100}%`,
-               top: `${80 + (i * 11) % 40}%`,
-               y: useTransform(scrollYProgress, [0.65, 0.85], [0, -200 - (i * 20)])
-             }}
-           />
+           <Lantern key={i} i={i} scrollYProgress={scrollYProgress} />
          ))}
       </motion.div>
 

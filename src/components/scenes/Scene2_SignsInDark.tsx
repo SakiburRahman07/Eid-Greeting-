@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene2SignsInDark = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene2SignsInDark = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 2 emerges from 10% to 25% of the total scroll
   // Fades in as Scene 1 starts fading out, fades out when moon reveals
   const opacity = useTransform(scrollYProgress, [0.08, 0.15, 0.22, 0.28], [0, 1, 1, 0]);

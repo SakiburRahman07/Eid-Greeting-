@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 10 is the core finale from 94% to 99%
   const opacity = useTransform(scrollYProgress, [0.92, 0.95], [0, 1]);
 
@@ -29,7 +29,7 @@ export const Scene10KeepsakeFinale = ({ scrollYProgress }: { scrollYProgress: an
            <motion.div style={{ opacity: innerContentOpacity }} className="flex flex-col items-center justify-center gap-6 h-full">
              <div className="w-16 h-1 bg-[#d4af37] rounded-full mx-auto" />
              <p className="font-serif text-base sm:text-lg md:text-2xl italic leading-relaxed">
-               "May this Eid bring joy to your heart, peace to your home, and light to your soul."
+               &quot;May this Eid bring joy to your heart, peace to your home, and light to your soul.&quot;
              </p>
              <div className="w-16 h-1 bg-[#d4af37] rounded-full mx-auto" />
              <div className="mt-2 md:mt-4 flex flex-col items-center">

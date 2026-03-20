@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
-export const Scene5HumanWarmth = ({ scrollYProgress }: { scrollYProgress: any }) => {
+export const Scene5HumanWarmth = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
   // Scene 5 corresponds to 45% to 65% scroll
   const opacity = useTransform(scrollYProgress, [0.42, 0.50, 0.60, 0.68], [0, 1, 1, 0]);
 
